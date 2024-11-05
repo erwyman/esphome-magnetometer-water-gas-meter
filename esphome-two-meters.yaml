@@ -14,12 +14,12 @@ substitutions:
   prefix2_name: 'Gas '
   prefix2_id: 'gas_'
 
-  gpio_led: GPIO2
+  gpio_led: GPIO18
 
-  i2c1_sda: GPIO4
-  i2c1_scl: GPIO5
-  i2c2_sda: GPIO12
-  i2c2_scl: GPIO14
+  i2c1_sda: GPIO2
+  i2c1_scl: GPIO1
+  i2c2_sda: GPIO4
+  i2c2_scl: GPIO5
 
   flow_update_interval_seconds1: '10'
   flow_update_interval_seconds2: '30'
