@@ -7,8 +7,8 @@ TLDR; Add this to your ESPHome device configuration:
 ```yaml
 substitutions:
   volume_unit: 'gal'
-  i2c_scl: GPIO5  # D1
-  i2c_sda: GPIO4  # D2
+  i2c_scl: GPIO1  # D1
+  i2c_sda: GPIO2  # D2
   # Set to false only if needed during manual calibration.
   # Do not keep them at false since these slow down the ESP device
   # and reduce the accuracy during high flow.
@@ -17,7 +17,7 @@ substitutions:
 
 packages:
   meter:
-    url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+    url: https://github.com/erwyman/esphome-magnetometer-water-gas-meter
     ref: main
     file: esphome-water-meter.yaml
     # Or for gas meter:
@@ -25,9 +25,17 @@ packages:
     # Or if you are using HMC5883L instead of QMC5883L:
     # files: [esphome-water-meter.yaml, hmc5883l.yaml]
     refresh: 0s
+
+#i2c:
+ # - id: !extend ${prefix_id}i2c_bus
+  #  scan: True
+
+#sensor:
+ # - id: !extend ${prefix_id}qmc5883l_id
+  #  range: 800uT
 ```
 
-<img src="https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/9363747e-ea4d-457b-b219-90f0192fcf8d" alt="Water meter in Home Assistant" width=40%>
+<img src="https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/9363747e-ea4d-457b-b219-90f0192fcf8d" alt="Water meter in Home Assistant" width=40%>
 
 ## Compatibility
 
@@ -95,18 +103,18 @@ To verify compatibility install the Sensors app on your phone, place your phone 
 
 QMC5883L | ESP8266
 --- | ---
-VCC | 5V
+VCC | 3.3V
 GND | GND
 SCL | D1
 SDA | D2
 
 The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for the 4 above pins. Tie the 4 white wires together with the GND solid wire. You might need to use a header pin for the GND. If you use a header pin cut the 5 GND wires shorter to avoid the ball of wires I had...
 
-![magnetometer wiring](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/c7052171-eee1-44cb-90f4-76cad4e46334)
-![magnetometer in adhesive heat shrink tubing](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/0ca8c738-63c2-4d38-ae35-42bb219b88d1)
-![d1 mini wiring](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/b8c3df8d-8111-415b-aecc-64d9c5a290c1)
-![d1 mini lego case](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/6d8d85a0-b00c-4db9-9484-3b345e73f848)
-![driveway](https://github.com/tronikos/esphome-magnetometer-water-gas-meter/assets/9987465/69a47f3e-8d8f-4c2e-aec8-14cb729b48a4)
+![magnetometer wiring](https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/c7052171-eee1-44cb-90f4-76cad4e46334)
+![magnetometer in adhesive heat shrink tubing](https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/0ca8c738-63c2-4d38-ae35-42bb219b88d1)
+![d1 mini wiring](https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/b8c3df8d-8111-415b-aecc-64d9c5a290c1)
+![d1 mini lego case](https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/6d8d85a0-b00c-4db9-9484-3b345e73f848)
+![driveway](https://github.com/erwyman/esphome-magnetometer-water-gas-meter/assets/9987465/69a47f3e-8d8f-4c2e-aec8-14cb729b48a4)
 
 ## Software installation
 
@@ -132,8 +140,8 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
       # For water one of: CCF, ft³, gal, L, m³
       # For gas one of: CCF, ft³, m³
       volume_unit: 'gal'
-      i2c_scl: GPIO5  # D1
-      i2c_sda: GPIO4  # D2
+      i2c_scl: GPIO1  # D1
+      i2c_sda: GPIO2  # D2
       # Set to false only if needed during manual calibration.
       # Do not keep them at false since these slow down the ESP device
       # and reduce the accuracy during high flow.
@@ -142,7 +150,7 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
 
     packages:
       meter:
-        url: https://github.com/tronikos/esphome-magnetometer-water-gas-meter
+        url: https://github.com/erwyman/esphome-magnetometer-water-gas-meter
         ref: main
         file: esphome-water-meter.yaml
         # Or for gas meter:
@@ -158,8 +166,8 @@ The ethernet cable has 4 twisted pairs of wires. Use any solid wire color for th
     ```yaml
     substitutions:
       volume_unit: 'gal'
-      i2c_scl: GPIO5  # D1
-      i2c_sda: GPIO4  # D2
+      i2c_scl: GPIO1  # D1
+      i2c_sda: GPIO2  # D2
       # Set to false only if needed during manual calibration.
       # Do not keep them at false since these slow down the ESP device
       # and reduce the accuracy during high flow.
