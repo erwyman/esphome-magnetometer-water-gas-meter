@@ -1,5 +1,11 @@
 # esphome-magnetometer-water-gas-meter [![Made for ESPHome](https://img.shields.io/badge/Made_for-ESPHome-black?logo=esphome)](https://esphome.io)
 
+Updates for compatability with TinyS3. 
+I am not a coder. I do not know YAML, ESP32, Arduino etc. These are educated guesses. 
+I am new to GitHub forking. Please forgive me if I am unaware of forking processes and etiquette, if any. Please feel free to share with me where I can improve on these topics.
+Credit to the original author - all I did was change some GPIO pinouts. 
+
+
 This [ESPHome](https://esphome.io) package allows reading your water meter or gas meter using the QMC5883L or HMC5883L, a triple-axis magnetometer.
 
 TLDR; Add this to your ESPHome device configuration:
